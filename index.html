@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking System</title>
     <style>
-body{margin: 0;}
-#container { width: 100%;height: 100vh;display: flex;flex-direction: column; }
-iframe { width: 100vw;flex:1;border: unset; }
-</style>
-    <!-- <script src="https://onlinegdb.com/embed/js/qNXfLxkjl?theme=dark"></script> -->
+        body { margin: 0; }
+        #container { width: 100%; height: 100vh; display: flex; flex-direction: column; }
+        iframe { width: 100vw; flex: 1; border: unset; }
+    </style>
 </head>
 <body>
     <div id="container">
-        <iframe style="" src="https://www.onlinegdb.com/embed/ARrdETYCP?theme=dark"></iframe>
+        <!-- Added an ID to the iframe so we can target it with JavaScript -->
+        <iframe id="gdbFrame" style="" src=""></iframe>
     </div>
+    
+    <script>
+        // 1. Read the query string from the URL (e.g., ?hub=ARrdETYCP)
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // 2. Get the value of 'hub'. If it doesn't exist, use a default ID.
+        const hubId = urlParams.get('hub') || 'ARrdETYCP'; 
+        
+        // 3. Find the iframe and set its src dynamically
+        const iframe = document.getElementById('gdbFrame');
+        iframe.src = `https://www.onlinegdb.com/embed/${hubId}?theme=dark`;
+    </script>
 </body>
 </html>
